@@ -4,8 +4,12 @@ idURLBase = "https://www.youtube.com/channel/"
 nameURLBase = "https://www.youtube.com/c/"
 
 function getChannelID(userURL) {
+
+    //Check if link can be used
+        //if link can be used
     id  = userURL.replace(idURLBase, "")
     return id
+        //else throw error
 }
 
 function getChannelName(userURL) {
