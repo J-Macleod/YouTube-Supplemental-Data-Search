@@ -1,4 +1,5 @@
 const yt = "AIzaSyCQHhOngXMnSmz4bZbwhnH29qs-9PSq0-M"
+var errorMessage = "Sorry, the information from this link can not be processed. Please enter another."
 
 idURLBase = "https://www.youtube.com/channel/"
 nameURLBase = "https://www.youtube.com/c/"
@@ -21,10 +22,12 @@ async function getUserImg(userURL) {
 
                 if ( (ajaxImg.status >= 200 && ajaxImg.status < 300) || (ajaxImg.status == 304) ) {
                     let data = JSON.parse(ajaxImg.responseText)
-
-                    let profImgHTML = "<p><img src='"+data.items[0]["snippet"]["thumbnails"]["default"]["url"]+"' alt='User Profile Picture' width='150' height='150'></p>"
-                                    
-                    document.getElementById('results').innerHTML = profImgHTML
+                    try{
+                        getImage(data)
+                    }
+                    catch(err){
+                        document.getElementById('results').innerHTML = errorMessage
+                    }
                 }
             }
         }
@@ -41,10 +44,12 @@ async function getUserImg(userURL) {
 
                 if ( (ajaxImg.status >= 200 && ajaxImg.status < 300) || (ajaxImg.status == 304) ) {
                     let data = JSON.parse(ajaxImg.responseText)
-
-                    let profImgHTML = "<p><img src='"+data.items[0]["snippet"]["thumbnails"]["default"]["url"]+"' alt='User Profile Picture' width='150' height='150'></p>"
-                                    
-                    document.getElementById('results').innerHTML = profImgHTML
+                    try{
+                        getImage(data)
+                    }
+                    catch(err){
+                        document.getElementById('results').innerHTML = errorMessage
+                    }
                 }
             }
         }
@@ -58,6 +63,13 @@ async function getUserImg(userURL) {
     }
 }
 
+//Button to get link from user
 document.getElementById("enterButton").onclick = function() {    
     getUserImg(document.getElementById("channelURL").value)
+}
+
+//Get Youtube Profile image
+function getImage(data){
+    let profImgHTML = "<p><img src='"+data.items[0]["snippet"]["thumbnails"]["default"]["url"]+"' alt='User Profile Picture' width='150' height='150'></p>"         
+    document.getElementById('results').innerHTML = profImgHTML
 }
