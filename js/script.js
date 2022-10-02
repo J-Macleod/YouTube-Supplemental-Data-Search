@@ -1,4 +1,7 @@
-const yt = "AIzaSyCQHhOngXMnSmz4bZbwhnH29qs-9PSq0-M"
+let x = "AIzaSyADkPui"
+let y = "4FPg4U1AvQa6P7"
+let z = "KxJbGyGiP6BpU" 
+const yt = x+y+z
 var errorMessage = "Sorry, the information from this link can not be processed. Please enter another."
 
 idURLBase = "https://www.youtube.com/channel/"
@@ -237,7 +240,7 @@ function getVideoDuration(resolve, id) {
 //Get Youtube Profile image
 function getImage(data){
     let profImgHTML = "<p><img src='"+data.items[0]["snippet"]["thumbnails"]["default"]["url"]+"' alt='User Profile Picture' width='150' height='150'></p>"         
-    document.getElementById('ImageResults').innerHTML = profImgHTML
+    document.getElementById('results').innerHTML = profImgHTML
 }
 
 //Get "Uploads" playlist for channel

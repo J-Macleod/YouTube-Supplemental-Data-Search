@@ -1,52 +1,16 @@
-
-#headingHero {
-    
-    background-color: #DE1A1A;
-    padding: 30px;
-    z-index: -1;
-    height: 100px;
-	width: 100%;
-    text-align: center;
-    font-size: 35px;
-    color: white;
-    margin-top: -20px;
-    margin-left: -30px;
-    padding-bottom: -20px;
-  }
-
 h1 {
     text-align: center;
-    font-weight: bolder;
-    color: #FBFBFF;
 }
 
 h2 {
     text-align: center;
-    color: #FBFBFF;
 }
 
 p {
     text-align: center;
-    color: #FBFBFF;
 }
 
 body {
-    background: #191919;
+    background: linear-gradient(white, red);
     background-attachment: fixed;
 }
-
-#results {
-    width: fit-content;
-    font-size: large;
-    color: #FBFBFF;
-    font-weight: bold;
-    text-align: center;
-    margin: 50px;
-    border-bottom-style: solid;
-    border-color: #DE1A1A;
-    border-width: 1px;
-    padding-bottom: 10px;
-    position:relative;
-    left: 39%;
-}
-
