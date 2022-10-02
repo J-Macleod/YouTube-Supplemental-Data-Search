@@ -237,7 +237,7 @@ function getVideoDuration(resolve, id) {
 //Get Youtube Profile image
 function getImage(data){
     let profImgHTML = "<p><img src='"+data.items[0]["snippet"]["thumbnails"]["default"]["url"]+"' alt='User Profile Picture' width='150' height='150'></p>"         
-    document.getElementById('results').innerHTML = profImgHTML
+    document.getElementById('ImageResults').innerHTML = profImgHTML
 }
 
 //Get "Uploads" playlist for channel
