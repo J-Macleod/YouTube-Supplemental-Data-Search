@@ -275,14 +275,18 @@ document.getElementById("enterButton").onclick = async function() {
         durationSeconds += newDurationSeconds
     }
 
-    if (durationSeconds < 3600){
-        let totalTime = new Date(durationSeconds * 1000).toISOString().substring(14, 19)
-        document.getElementById('results').innerHTML += "<p>Total time to watch all videos:</p>"
+
+    if (durationSeconds > 86400){
+        let totalTime = new Date(durationSeconds * 1000).toISOString().substring(8, 19)
+        document.getElementById('results').innerHTML += "<p>Total time to watch all videos:</p><p>(Format - days:hours:minutes:seconds)</p>"
         document.getElementById('results').innerHTML += "<p>"+totalTime+"</p>"
-    }
-    else {
+    } else if (durationSeconds > 3600){
         let totalTime = new Date(durationSeconds * 1000).toISOString().substring(11, 19)
-        document.getElementById('results').innerHTML += "<p>Total time to watch all videos:</p>"
+        document.getElementById('results').innerHTML += "<p>Total time to watch all videos:</p><p>(Format - hours:minutes:seconds)</p>"
+        document.getElementById('results').innerHTML += "<p>"+totalTime+"</p>"
+    } else {
+        let totalTime = new Date(durationSeconds * 1000).toISOString().substring(14, 19)
+        document.getElementById('results').innerHTML += "<p>Total time to watch all videos:</p><p>(Format - minutes:seconds)</p>"
         document.getElementById('results').innerHTML += "<p>"+totalTime+"</p>"
     }
 }
